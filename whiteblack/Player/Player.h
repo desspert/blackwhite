@@ -32,6 +32,7 @@ public:
     void draw();
     void setup(Vec2f pos);
 	void move();
+	void conditionUpdate();
 	void dirUpdate(SELECTDIR&);
 	void animation();
 	SELECTDIR select_dir;

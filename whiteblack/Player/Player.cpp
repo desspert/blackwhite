@@ -20,7 +20,7 @@ void Player::draw(){
 			player.size.x(),
 			player.size.y(),
 			0 + cut_x,
-			0,
+			0 + cut_y,
 			256,
 			256,
 			player_texture,
@@ -37,7 +37,7 @@ void Player::draw(){
 			player.size.x(),
 			player.size.y(),
 			0 + cut_x,
-			0,
+			0 + cut_y,
 			256,
 			256,
 			player_texture,
@@ -70,8 +70,26 @@ void Player::setup(Vec2f pos){
 	jump_flag = false;
 }
 
-void Player::move(){
+void Player::conditionUpdate(){
 	cut_x = 256;
+	switch (color_abs)
+	{
+	case 0:
+		cut_y = 768;
+		break;
+	case 1:
+		cut_y = 512;
+		break;
+	case 2:
+		cut_y = 256;
+		break;
+	case 3:
+		cut_y = 0;
+		break;
+	}
+}
+
+void Player::move(){
 	dirUpdate(select_dir);
 	//ブロック選択
 	if (select_dir == SELECTDIR::Y ||
@@ -189,6 +207,7 @@ void Player::animation(){
 	animation_count++;
 	int index = (animation_count / 6) % 3;
 	cut_x = (index)* 256.0f;
+	cut_y = (index) / 256.0f;
 }
 
 Object Player::getObject(){
