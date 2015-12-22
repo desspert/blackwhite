@@ -8,17 +8,14 @@ public:
 	NormalBlock();
 	~NormalBlock();
 
+	virtual void setImageStripe(Texture image){ image_stripe = image; };
+
 	void update();
 	void draw();
 	void setup();
 
-	Vec2f Collision(Object _player,
-		BLOCK _up, BLOCK _down,
-		DIRECTION _direction = DIRECTION::NON,
-		int move_vector = 0);
-
 private:
 
-
+	Texture image_stripe;
 
 };
