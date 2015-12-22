@@ -77,6 +77,7 @@ void Player::conditionUpdate(){
 	switch (color_abs)
 	{
 	case 0:
+<<<<<<< HEAD
         cut_y = 768;
 		fream = 9;
 		break;
@@ -91,6 +92,18 @@ void Player::conditionUpdate(){
 	case 3:
         cut_y = 0;
 		fream = 0;
+=======
+		cut_y = 768;
+		break;
+	case 1:
+		cut_y = 512;
+		break;
+	case 2:
+		cut_y = 256;
+		break;
+	case 3:
+		cut_y = 0;
+>>>>>>> refs/remotes/origin/master
 		break;
 	}
 }
@@ -211,9 +224,15 @@ void Player::dirUpdate(SELECTDIR& select_dir){
 
 void Player::animation(){
 	animation_count++;
+<<<<<<< HEAD
 	int index = (animation_count / 6) % 3+fream;
 	cut_x = (index%3) * 256.0f;
 	cut_y = (index/3) * 256.0f;
+=======
+	int index = (animation_count / 6) % 3;
+	cut_x = (index)* 256.0f;
+	cut_y = (index) / 256.0f;
+>>>>>>> refs/remotes/origin/master
 }
 
 Object Player::getObject(){
